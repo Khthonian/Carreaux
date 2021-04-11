@@ -8,13 +8,16 @@ namespace DeckOfCards
     {
         static void Main(string[] args)
         {
+            // Initialise the app with a fresh deck for the player
             Deck deck = new Deck();
             while (true)
             {
-                Console.WriteLine("Hello, I'm Carreaux, the Automatic Card Dealer\nPress SPACE to begin\nInput 'E' to exit\nPress ENTER to confirm\n");
+                // Welcome the user to the application
+                // I have called the application Carreaux, the french phrase for diamonds in realtion to cards
+                Console.WriteLine("Hello, I'm Carreaux, the Automatic Card Dealer\nPress ENTER to begin\nInput 'E' then ENTER to exit");
                 switch (Console.ReadLine().ToLower())
                 {
-                    case " ":
+                    case "":
                         Console.WriteLine("Let's begin!");
                         deck.FreshDeck();
                         deck.Shuffle();
@@ -33,6 +36,7 @@ namespace DeckOfCards
 
     public class Card
     {
+        // Create to basic automatic properties for the suits and the ranks in the card class
         public string Rank { get; set; }
         public string Suit { get; set; }
     }
@@ -44,8 +48,9 @@ namespace DeckOfCards
         // Create a string list of all the suits in a standard deck of 52 french-style playing cards
         public List<string> Suits = new List<string> { "♦", "♥", "♣", "♠" };
         // Create a string list of all the ranks in a standard deck of 52 french style playing cards
-        public List<string> Ranks = new List<string> { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" }; //List of values for the cards
-        public Stack<Card> NewDeck { get; set; } // Property to handle the deck
+        public List<string> Ranks = new List<string> { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" }; 
+        // Control the deck with an automatic property
+        public Stack<Card> NewDeck { get; set; }
         public void FreshDeck()
         {
             // Deck is set as a brand new stack
@@ -64,7 +69,7 @@ namespace DeckOfCards
                     NewDeck.Push(card);
                 }
             }
-            Console.WriteLine("\nI have created a new deck for you.\n");
+            Console.WriteLine("I have created a new deck for you.");
         }
 
         public void CarreauxMenu()
@@ -72,11 +77,11 @@ namespace DeckOfCards
             // Check to see whether the stack is empty or not
             while (IsEmpty() != true)
             {
-                Console.WriteLine("SPACE to deal a new card ~ S to Shuffle ~ E to exit\nPress ENTER to confirm");
+                Console.WriteLine("Press ENTER to deal a new card\nS to Shuffle ~ E to exit\nPress ENTER to confirm");
                 // Create a switch menu to handle in-game progression
                 switch (Console.ReadLine().ToLower())
                 {
-                    case " ":
+                    case "":
                         Deal();
                         break;
                     case "s":
@@ -91,7 +96,6 @@ namespace DeckOfCards
                 }
 
             }
-
         }
 
         public bool IsEmpty()
@@ -99,7 +103,21 @@ namespace DeckOfCards
             // Check to see whether the stack contains any entities
             if (NewDeck.Count == 0)
             {
-                Console.WriteLine("\nThe deck has been completely dealt.");
+                Console.WriteLine("The deck has been completely dealt.");
+                Console.WriteLine("\nDo you want me to restart or do you want to exit?\nPress ENTER to restart\nInput 'E' then ENTER to exit");
+                switch (Console.ReadLine().ToLower())
+                {
+                    case "":
+                        break;
+                    case "e":
+                        Console.WriteLine("Thank you for using Carreaux. Goodbye.");
+                        System.Environment.Exit(0);
+                        break;
+                    default:
+                        break;
+
+
+                }
                 return true;
             }
             return false;
@@ -123,8 +141,9 @@ namespace DeckOfCards
         }
         public void Deal()
         {
-            // Peek the top value from the stack and write the appropriate card to the console in a string format. Subsequently, pop this value from the stack.
-            Console.WriteLine($"I have dealt you the {NewDeck.Peek().Rank} of {NewDeck.Peek().Suit}");
+            // Peek the top value from the stack and write the appropriate card to the console in a string format
+            // Subsequently, pop this value from the stack
+            Console.WriteLine($"I have dealt you the {NewDeck.Peek().Rank} of {NewDeck.Peek().Suit}\n");
             NewDeck.Pop();
         }
     }
