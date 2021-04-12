@@ -26,7 +26,7 @@ namespace DeckOfCards
                         deck.CarreauxMenu();
                         break;
                     case "e":
-                        Console.WriteLine("Thanks for using Carreaux, Automatic Card Dealer");
+                        Console.WriteLine("Thanks for using Carreaux, the Automatic Card Dealer");
                         System.Environment.Exit(0);
                         break;
                     default:
