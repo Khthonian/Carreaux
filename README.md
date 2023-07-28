@@ -8,7 +8,7 @@ To run the program, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Make sure you have the latest version of the .NET SDK installed on your system.
-3. Open the project in your favorite C# development environment (e.g., Visual Studio, Visual Studio Code).
+3. Open the project in your favourite C# development environment (e.g., Visual Studio, Visual Studio Code).
 4. Build and run the application.
 
 Upon running the program, you will be greeted with a welcome message from Carreaux, the automatic card dealer.
@@ -17,9 +17,9 @@ Upon running the program, you will be greeted with a welcome message from Carrea
 
 The Carreaux application provides the following functionalities:
 
-1. **Fresh Deck**: Initializes the deck of cards with a full set of 52 French-style playing cards.
+1. **Fresh Deck**: Initialises the deck of cards with a full set of 52 French-style playing cards.
 2. **Deal**: Deals the top card from the deck and displays its rank and suit.
-3. **Shuffle**: Shuffles the deck to randomize the order of the cards.
+3. **Shuffle**: Shuffles the deck to randomise the order of the cards.
 4. **Restart**: Allows the user to restart the game with a fresh deck after the entire deck has been dealt.
 
 ## Usage
